@@ -11,9 +11,11 @@ public class Email {
     private String lastName;
     private String password;
     private String department;
+    private String email;
     private int mailboxCapacity;
     private int defaultPwdLength =10;
     private String alternateEmail;
+    private String companySuffix="company.com";
 
 
     // Constructor to recieve firstName and last name
@@ -26,6 +28,14 @@ public class Email {
 
         // call method that returns random password
         this.password = randomPassword(defaultPwdLength);
+
+        // combine elements to generate email
+        email = generateEmail();
+
+    }
+
+    public String generateEmail () {
+        return firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix;
     }
 
 
@@ -45,11 +55,11 @@ public class Email {
 
         switch (departmentChoice){
             case 1:
-                return "Sales";
+                return "sales";
             case 2:
-                return "Development";
+                return "dev";
             case 3:
-                return "Accounting";
+                return "acct";
             default:
                 return "";
         }
@@ -86,6 +96,7 @@ public class Email {
 
     // toString
 
+
     @Override
     public String toString() {
         return "Email{" +
@@ -93,8 +104,11 @@ public class Email {
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", department='" + department + '\'' +
+                ", email='" + email + '\'' +
                 ", mailboxCapacity=" + mailboxCapacity +
+                ", defaultPwdLength=" + defaultPwdLength +
                 ", alternateEmail='" + alternateEmail + '\'' +
+                ", companySuffix='" + companySuffix + '\'' +
                 '}';
     }
 }
