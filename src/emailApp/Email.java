@@ -12,7 +12,7 @@ public class Email {
     private String password;
     private String department;
     private String email;
-    private int mailboxCapacity;
+    private int mailboxCapacity=500;
     private int defaultPwdLength =10;
     private String alternateEmail;
     private String companySuffix="company.com";
@@ -90,13 +90,19 @@ public class Email {
 
     // change password
     public void setPassword(String password) {
-        // add more logic
         this.password = password;
     }
 
+    // get mailbox capacity
+    public int getMailboxCapacity() { return mailboxCapacity;}
+
+    // get alt email
+    public String getAlternateEmail() {return alternateEmail; }
+
+    // get password
+    public String getPassword() {return password; }
+
     // toString
-
-
     @Override
     public String toString() {
         return "Email{" +
